@@ -1,6 +1,6 @@
 import base64
 import logging
-from odoo import http, exceptions
+from openerp import http, exceptions
 from datetime import datetime, timedelta
 from werkzeug.utils import redirect
 
@@ -19,8 +19,8 @@ class Authorize(http.Controller):
             # in either case we need to then get user to reconnect
             self._logger.info(
                 "Found either none or more than one pending tracker request. " +
-                "\nShould never find none, something seriously has gone wrong if found none."+
-                "\nWe can have more than one if there was an initial request and authorisation it was never completed."+
+                "\nShould never find none, something seriously has gone wrong if found none." +
+                "\nWe can have more than one if there was an initial request and authorisation it was never completed." +
                 "\nIf in this state we need to reset the tracker and get user to create a new connection " +
                 "\napi_tracer = {}".format(api_tracker))
             for record in api_tracker:
