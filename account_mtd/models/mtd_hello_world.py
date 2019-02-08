@@ -177,7 +177,6 @@ class MtdHelloWorld(models.Model):
                     "menu_id={menu}&action={action}".format(menu=menu_id.id, action=action.id)
                 )
             return True
-            
         elif (response.status_code == 401 and
               self.endpoint_name == "user" and
               response_token['message'] == "Invalid Authentication information provided"):
@@ -186,14 +185,21 @@ class MtdHelloWorld(models.Model):
                 "and message was:- {} ".format(response_token['message'])
             )
             return self.refresh_user_authorisation(token_record)
-            
         else:
             response_token = json.loads(response.text)
+            resp_message=''
+            resp_error=''
+            if 'error_description' in response_token.keys():
+                resp_message = response_token['error_description']
+            elif 'message' in response_token.keys():
+                resp_message = response_token['message']
+            if 'error' in response_token.keys():
+                resp_error = response_token['error']
             error_message = self.consturct_error_message_to_display(
                 url=hmrc_connection_url,
                 code=response.status_code,
-                message=response_token['error_description'],
-                error=response_token['error']
+                message=resp_message,
+                error=resp_error
             )
             _logger.info("_json_command - other error found:- {error} ".format(error=error_message))
             self.response_from_hmrc = error_message
