@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api, exceptions
+from openerp import models, fields, api, exceptions
 
 
 class MtdHmrcConfiguration(models.Model):
