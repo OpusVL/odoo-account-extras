@@ -103,7 +103,7 @@ class MtdIssueRequest(models.Model):
 
         else:
             response_token = json.loads(response.text)
-            error_message = self.env['mtd.display_message'].consturct_error_message_to_display(
+            error_message = self.env['mtd.display_message'].construct_error_message_to_display(
                 url=url,
                 code=response.status_code,
                 message=response_token['error_description'],

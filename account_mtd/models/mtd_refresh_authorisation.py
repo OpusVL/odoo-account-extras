@@ -56,7 +56,7 @@ class MtdRefreshAuthorisation(models.Model):
             )
             return self.env['mtd.user_authorisation'].get_user_authorisation(record._name, record.id)
         else:
-            error_message = self.env['mtd.display_message'].consturct_error_message_to_display(
+            error_message = self.env['mtd.display_message'].construct_error_message_to_display(
                 url=url,
                 code=response.status_code,
                 message=response_token['message']

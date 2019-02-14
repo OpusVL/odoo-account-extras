@@ -88,7 +88,7 @@ class MtdExchangeAuthorisation(models.Model):
             version = self.env['mtd.issue_request'].json_command('version', module_name, record_id, record_tracker)
             return version
         else:
-            error_message = self.env['mtd.display_message'].consturct_error_message_to_display(
+            error_message = self.env['mtd.display_message'].construct_error_message_to_display(
                 url=url,
                 code=response.status_code,
                 message=response_token['error_description'],
