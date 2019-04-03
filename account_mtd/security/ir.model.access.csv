@@ -7,5 +7,5 @@ access_hmrc_api_tokens_user,access_hmrc_api_tokens_user,model_mtd_api_tokens,mtd
 access_hmrc_api_tokens_admin,access_hmrc_api_tokens_admin,model_mtd_api_tokens,mtd_admin,1,1,1,1,
 access_hmrc_api_request_tracker_user,access_hmrc_api_request_tracker_user,model_mtd_api_request_tracker,mtd_user,1,1,1,0,
 access_hmrc_api_request_tracker_admin,access_hmrc_api_request_tracker_admin,model_mtd_api_request_tracker,mtd_admin,1,1,1,1,
-access_hmrc_api_user,access_hmrc_api_user,model_mtd_api,mtd_user,1,1,0,0
+access_hmrc_api_user,access_hmrc_api_user,model_mtd_api,mtd_user,1,1,0,0,
 access_hmrc_api_admin,access_hmrc_api_admin,model_mtd_api,mtd_admin,1,1,1,1

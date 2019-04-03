@@ -49,6 +49,7 @@ class MtdUserAuthorisation(models.Model):
         return self.handle_user_authorisation_response(response, authorisation_url, tracker_api, record)
 
     def handle_user_authorisation_response(self, response=None, url=None, tracker=None, record=None):
+
         if response.ok:
             return {'url': url, 'type': 'ir.actions.act_url', 'target': 'self', 'res_id': record.id}
         else:
@@ -56,8 +57,7 @@ class MtdUserAuthorisation(models.Model):
             error_message = self.env['mtd.display_message'].construct_error_message_to_display(
                 url=url,
                 code=response.status_code,
-                message=response_token['error_description'],
-                error=response_token['error']
+                response_token=response_token
             )
             record.response_from_hmrc = error_message
             # close the request so a new request can be made.
@@ -74,8 +74,9 @@ class MtdUserAuthorisation(models.Model):
     def create_tracker_record(self, module_name=None, record=None):
         # get the action id and menu id and store it in the tracker table
         # if we get an error on authorisation or while exchanging tokens we need to use these to redirect.
-        action = self.env.ref('account_{}.action_{}'.format(module_name.split('.')[0], module_name.replace('.', '_')))
-        menu_id = self.env.ref('account_{}.submenu_{}'.format(module_name.split('.')[0], module_name.replace('.', '_')))
+
+        action = self.env.ref('account_{}.action_mtd_{}'.format(module_name.split('.')[0], module_name.split('.')[1]))
+        menu_id = self.env.ref('account_{}.submenu_mtd_{}'.format(module_name.split('.')[0], module_name.split('.')[1]))
 
         # Update the information in the api tracker table
         _logger.info("(Step 1) Get authorisation")
@@ -89,5 +90,6 @@ class MtdUserAuthorisation(models.Model):
             'action': action.id,
             'menu_id': menu_id.id,
             'module_name': module_name,
+            'company_id': record.company_id.id
         })
         return tracker_api
