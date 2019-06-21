@@ -20,5 +20,5 @@ class AccountAccount(models.Model):
         # If we already have account move lines with the account we want to be able to select reconcile therefore we
         # have to remove the existing constraint on account.py
 
-        '''Warning If you try to inherit AccountAccount.write in anywhere else it will be ignored.'''
+        # WARNING: If you try to inherit AccountAccount.write() anywhere else it will be ignored.
         return super(models.Model, self).write(vals)
