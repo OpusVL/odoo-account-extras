@@ -23,7 +23,7 @@
 
 {
     'name': 'Allow Reconciliation',
-    'version': '0.1',
+    'version': '1.0.0',
     'author': 'OpusVL',
     'website': 'http://opusvl.com/',
     'summary': '',
