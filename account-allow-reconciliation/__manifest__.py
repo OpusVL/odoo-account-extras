@@ -28,7 +28,8 @@
     'website': 'http://opusvl.com/',
     'summary': '',
     'category': '',
-    'description': 'Reconciliation - 11.0',
+    'description': """Remove the constraint from account so that user can select allow
+reconciliation even if there are account move lines with the specific account.""",
     'images': [
     ],
     'depends': [
