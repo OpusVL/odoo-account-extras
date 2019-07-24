@@ -9,11 +9,11 @@
                 </header>
                 <sheet>
                     <group>
+                        <field name="environment" widget="radio" options="{'horizontal': true}"/>
                         <field name="name"/>
                         <field name="server_token"/>
                         <field name="client_id"/>
                         <field name="client_secret"/>
-                        <field name="environment" widget="radio" options="{'horizontal': true}"/>
                         <field name="hmrc_url"/>
                         <field name="redirect_url"/>
                         <field name="access_token" invisible="1"/>
