@@ -39,7 +39,7 @@
         'sale',
     ],
     'data': [
-        'views/account.xml',
+        # 'views/account.xml',
     ],
     'demo': [
     ],
