@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
         <record model="ir.ui.view" id="invoice_form">
             <field name="name">account.invoice.form.inherit.sale_order_id</field>
@@ -9,9 +9,9 @@
             <field name="arch" type="xml">
                 <field name="origin" position="after">
                     <field name="source_sale_order_id"
-                           attrs="{'invisible': [('source_sale_order_id', '=', False)]}"/>
+                        attrs="{'invisible': [('source_sale_order_id', '=', False)]}"/>
                 </field>
             </field>
         </record>
     </data>
-</openerp>
+</odoo>
