@@ -27,7 +27,7 @@ class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
     created_invoice_ids = fields.One2many(
-        comodel_name='account.invoice',
+        comodel_name='account.move',
         inverse_name='source_sale_order_id',
         readonly=True,
     )

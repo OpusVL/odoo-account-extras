@@ -22,8 +22,8 @@
 
 from odoo import models, fields
 
-class AccountInvoice(models.Model):
-    _inherit = 'account.invoice'
+class AccountMove(models.Model):
+    _inherit = 'account.move'
 
     source_sale_order_id = fields.Many2one(
         string='Sales Order',
