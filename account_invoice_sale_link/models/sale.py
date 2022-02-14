@@ -32,13 +32,11 @@ class SaleOrder(models.Model):
         readonly=True,
     )
 
-
     @api.model
-    def _prepare_invoice(self, order, lines):
-        # TODO this will need porting
-        # TODO new sig: _prepare_invoice(self) not model method
-        res = super(SaleOrder, self)._prepare_invoice(order, lines)
-        res.update({'source_sale_order_id': order.id})
+    def _prepare_invoice(self):
+        self.ensure_one()
+        res = super()._prepare_invoice()
+        res.update({'source_sale_order_id': self.id})
         return res
 
 
